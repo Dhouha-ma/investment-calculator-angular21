@@ -1,11 +1,39 @@
 <h1 class="center">Investment Calculator</h1>
+
 <div class="calculator-container">
-  <div class="inputs-container">
-    <app-input type="text" placeholder="Initial Investment" (changed)="handleInput()"></app-input>
-    <app-input type="text" placeholder="Annual Investment" (changed)="handleInput()"></app-input>
-    <app-input type="text" placeholder="Expected return" (changed)="handleInput()"></app-input>
-    <app-input type="text" placeholder="Duration" (changed)="handleInput()"></app-input>
-  </div>
-  <app-button (clicked)="handleClick()" label="Calculate"></app-button>
-  <p class="center">Please enter some values and click calculate</p>
+  <form [formGroup]="calculatorForm">
+    <div class="inputs-container">
+      <app-input
+        type="text"
+        placeholder="Initial Investment"
+        formControlName="initialInvestment"
+        (changed)="handleInput($event)"
+      />
+
+      <app-input
+        type="text"
+        placeholder="Annual Investment"
+        formControlName="annualInvestment"
+        (changed)="handleInput($event)"
+      />
+
+      <app-input
+        type="text"
+        placeholder="Expected return"
+        formControlName="expectedReturn"
+        (changed)="handleInput($event)"
+      />
+
+      <app-input
+        type="text"
+        placeholder="Duration"
+        formControlName="duration"
+        (changed)="handleInput($event)"
+      />
+    </div>
+
+    <app-button label="Calculate" type="submit" (clicked)="handleClick()" />
+
+    <p class="center">Please enter some values and click calculate</p>
+  </form>
 </div>

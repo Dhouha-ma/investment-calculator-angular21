@@ -1,1 +1,8 @@
-<input type=" {{ type() }} " placeholder="{{ placeholder() }}" (input)="onChange()" />
+<input
+  [type]="type()"
+  [placeholder]="placeholder()"
+  [value]="value"
+  [disabled]="disabled"
+  (input)="handleInput($event)"
+  (blur)="handleBlur()"
+/>
