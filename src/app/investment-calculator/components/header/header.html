@@ -33,7 +33,7 @@
     </div>
 
     <app-button label="Calculate" type="submit" (clicked)="handleClick()" />
-
-    <p class="center">Please enter some values and click calculate</p>
   </form>
 </div>
+
+<app-calculation-result [results]="results()"></app-calculation-result>

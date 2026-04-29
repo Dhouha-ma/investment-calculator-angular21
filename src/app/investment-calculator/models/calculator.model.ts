@@ -6,3 +6,12 @@ export interface CalculatorForm {
   expectedReturn: FormControl<string>;
   duration: FormControl<string>;
 }
+
+export interface InvestmentResult {
+  year: number;
+  interest: number;
+  valueEndOfYear: number;
+  annualInvestment: number;
+  totalInterest: number;
+  totalAmountInvested: number;
+}
