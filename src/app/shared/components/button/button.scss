@@ -1,0 +1,20 @@
+:host {
+	display: block;
+	width: 100%;
+}
+
+.calc-btn {
+	width: 100%;
+	padding: 0.6rem 0.75rem;
+	font-size: 1rem;
+	background-color: #2563eb; /* blue */
+	color: #fff;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+}
+
+.calc-btn:hover {
+	background-color: #1e40af;
+}
+
