@@ -13,4 +13,8 @@ export class Header {
   public handleInput() {
     console.log('value changed');
   }
+
+  public handleClick() {
+    console.log('button clicked');
+  }
 }
