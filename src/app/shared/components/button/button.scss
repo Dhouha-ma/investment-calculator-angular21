@@ -17,3 +17,8 @@
 .calculate-btn:hover {
   background-color: #1e40af;
 }
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

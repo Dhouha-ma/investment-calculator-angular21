@@ -9,8 +9,10 @@ import { Component, input, output } from '@angular/core';
 export class Button {
   public label = input('Click me');
   public clicked = output<void>();
+  public disabled = input<boolean>(false);
 
   public onClick() {
+    if (this.disabled()) return;
     this.clicked.emit();
   }
 }
