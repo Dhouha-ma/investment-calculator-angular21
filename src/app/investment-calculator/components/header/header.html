@@ -3,33 +3,10 @@
 <div class="calculator-container">
   <form [formGroup]="calculatorForm">
     <div class="inputs-container">
-      <app-input
-        type="text"
-        placeholder="Initial Investment"
-        formControlName="initialInvestment"
-        (changed)="handleInput($event)"
-      />
-
-      <app-input
-        type="text"
-        placeholder="Annual Investment"
-        formControlName="annualInvestment"
-        (changed)="handleInput($event)"
-      />
-
-      <app-input
-        type="text"
-        placeholder="Expected return"
-        formControlName="expectedReturn"
-        (changed)="handleInput($event)"
-      />
-
-      <app-input
-        type="text"
-        placeholder="Duration"
-        formControlName="duration"
-        (changed)="handleInput($event)"
-      />
+      <app-input type="text" placeholder="Initial Investment" formControlName="initialInvestment" />
+      <app-input type="text" placeholder="Annual Investment" formControlName="annualInvestment" />
+      <app-input type="text" placeholder="Expected return" formControlName="expectedReturn" />
+      <app-input type="text" placeholder="Duration" formControlName="duration" />
     </div>
 
     <app-button

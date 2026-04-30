@@ -14,16 +14,11 @@ import { calculateInvestmentResults } from '../../utils/investment.util';
   styleUrl: './header.scss',
 })
 export class Header implements OnInit {
-  calculatorForm!: FormGroup<CalculatorForm>;
+  public calculatorForm!: FormGroup<CalculatorForm>;
   public results = signal<InvestmentResult[]>([]);
 
   ngOnInit(): void {
     this.initCalculatorForm();
-  }
-
-  public handleInput(value: string): void {
-    console.log('value changed:', value);
-    console.log(this.calculatorForm.getRawValue());
   }
 
   public handleClick(): void {
