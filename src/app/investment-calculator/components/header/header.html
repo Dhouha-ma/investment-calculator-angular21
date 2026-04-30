@@ -1,21 +1,4 @@
 <h1 class="center">Investment Calculator</h1>
 
-<div class="calculator-container">
-  <form [formGroup]="calculatorForm()">
-    <div class="inputs-container">
-      <app-input type="text" placeholder="Initial Investment" formControlName="initialInvestment" />
-      <app-input type="text" placeholder="Annual Investment" formControlName="annualInvestment" />
-      <app-input type="text" placeholder="Expected return" formControlName="expectedReturn" />
-      <app-input type="text" placeholder="Duration" formControlName="duration" />
-    </div>
-
-    <app-button
-      label="Calculate"
-      type="submit"
-      (clicked)="handleClick()"
-      [disabled]="calculatorForm().invalid"
-    />
-  </form>
-</div>
-
-<app-calculation-result [results]="results()"></app-calculation-result>
+<app-calculator-form></app-calculator-form>
+<app-calculation-result></app-calculation-result>

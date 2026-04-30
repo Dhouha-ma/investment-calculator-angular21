@@ -1,0 +1,32 @@
+.calculator-container {
+  background-color: #f5f7fb;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 0.75rem;
+  border-radius: 8px;
+}
+
+.calculator-container app-button {
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.inputs-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  align-items: end;
+}
+
+.inputs-container app-input {
+  display: block;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .inputs-container {
+    grid-template-columns: 1fr;
+    padding: 0.75rem;
+  }
+}
