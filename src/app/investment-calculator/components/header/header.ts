@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { Button } from '../../../shared/components/button/button';
@@ -13,34 +13,9 @@ import { calculateInvestmentResults } from '../../utils/investment.util';
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
-export class Header implements OnInit {
-  public calculatorForm!: FormGroup<CalculatorForm>;
-  public results = signal<InvestmentResult[]>([]);
-
-  ngOnInit(): void {
-    this.initCalculatorForm();
-  }
-
-  public handleClick(): void {
-    if (this.calculatorForm.invalid) {
-      this.calculatorForm.markAllAsTouched();
-      return;
-    }
-
-    const formValue = this.calculatorForm.getRawValue();
-
-    this.results.set(
-      calculateInvestmentResults(
-        Number(formValue.initialInvestment),
-        Number(formValue.annualInvestment),
-        Number(formValue.expectedReturn),
-        Number(formValue.duration),
-      ),
-    );
-  }
-
-  private initCalculatorForm(): void {
-    this.calculatorForm = new FormGroup<CalculatorForm>({
+export class Header {
+  public calculatorForm = signal<FormGroup<CalculatorForm>>(
+    new FormGroup<CalculatorForm>({
       initialInvestment: new FormControl('', {
         nonNullable: true,
         validators: [Validators.required],
@@ -57,6 +32,25 @@ export class Header implements OnInit {
         nonNullable: true,
         validators: [Validators.required],
       }),
-    });
+    }),
+  );
+  public results = signal<InvestmentResult[]>([]);
+
+  public handleClick(): void {
+    if (this.calculatorForm().invalid) {
+      this.calculatorForm().markAllAsTouched();
+      return;
+    }
+
+    const formValue = this.calculatorForm().getRawValue();
+
+    this.results.set(
+      calculateInvestmentResults(
+        Number(formValue.initialInvestment),
+        Number(formValue.annualInvestment),
+        Number(formValue.expectedReturn),
+        Number(formValue.duration),
+      ),
+    );
   }
 }
