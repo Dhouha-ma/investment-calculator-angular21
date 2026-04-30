@@ -1,10 +1,10 @@
 import { FormControl } from '@angular/forms';
 
 export interface CalculatorForm {
-  initialInvestment: FormControl<string>;
-  annualInvestment: FormControl<string>;
-  expectedReturn: FormControl<string>;
-  duration: FormControl<string>;
+  initialInvestment: FormControl<number | null>;
+  annualInvestment: FormControl<number | null>;
+  expectedReturn: FormControl<number | null>;
+  duration: FormControl<number | null>;
 }
 
 export interface InvestmentResult {

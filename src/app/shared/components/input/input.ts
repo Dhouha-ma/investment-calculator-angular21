@@ -18,18 +18,18 @@ type InputType = 'text' | 'email' | 'password' | 'number';
 export class InputComponent implements ControlValueAccessor {
   public type = input<InputType>('text');
   public placeholder = input<string>('');
-  public changed = output<string>();
+  public changed = output<string | number | null>();
   public value = '';
   public disabled = false;
 
-  private onChange = (value: string) => {};
+  private onChange = (value: string | number | null) => {};
   private onTouched = () => {};
 
-  public writeValue(value: string): void {
-    this.value = value ?? '';
+  public writeValue(value: string | number | null): void {
+    this.value = value == null ? '' : String(value);
   }
 
-  public registerOnChange(fn: (value: string) => void): void {
+  public registerOnChange(fn: (value: string | number | null) => void): void {
     this.onChange = fn;
   }
 
@@ -42,10 +42,12 @@ export class InputComponent implements ControlValueAccessor {
   }
 
   public handleInput(event: Event): void {
-    const value = (event.target as HTMLInputElement).value;
-    this.value = value;
-    this.onChange(value);
-    this.changed.emit(value);
+    const raw = (event.target as HTMLInputElement).value;
+    this.value = raw;
+    const out: string | number | null =
+      this.type() === 'number' ? (raw === '' ? null : Number(raw)) : raw;
+    this.onChange(out);
+    this.changed.emit(out);
   }
 
   public handleBlur(): void {

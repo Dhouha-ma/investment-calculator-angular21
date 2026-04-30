@@ -16,21 +16,17 @@ import { ResultsService } from '../../services/results.service';
 export class CalculatorFormComponent {
   public calculatorForm = signal<FormGroup<CalculatorForm>>(
     new FormGroup<CalculatorForm>({
-      initialInvestment: new FormControl('', {
-        nonNullable: true,
-        validators: [Validators.required],
+      initialInvestment: new FormControl<number | null>(null, {
+        validators: [Validators.required, Validators.min(0)],
       }),
-      annualInvestment: new FormControl('', {
-        nonNullable: true,
-        validators: [Validators.required],
+      annualInvestment: new FormControl<number | null>(null, {
+        validators: [Validators.required, Validators.min(0)],
       }),
-      expectedReturn: new FormControl('', {
-        nonNullable: true,
-        validators: [Validators.required],
+      expectedReturn: new FormControl<number | null>(null, {
+        validators: [Validators.required, Validators.min(0)],
       }),
-      duration: new FormControl('', {
-        nonNullable: true,
-        validators: [Validators.required],
+      duration: new FormControl<number | null>(null, {
+        validators: [Validators.required, Validators.min(0)],
       }),
     }),
   );

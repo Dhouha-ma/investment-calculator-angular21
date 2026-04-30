@@ -1,10 +1,14 @@
 <div class="calculator-container">
   <form [formGroup]="calculatorForm()">
     <div class="inputs-container">
-      <app-input type="text" placeholder="Initial Investment" formControlName="initialInvestment" />
-      <app-input type="text" placeholder="Annual Investment" formControlName="annualInvestment" />
-      <app-input type="text" placeholder="Expected return" formControlName="expectedReturn" />
-      <app-input type="text" placeholder="Duration" formControlName="duration" />
+      <app-input
+        type="number"
+        placeholder="Initial Investment"
+        formControlName="initialInvestment"
+      />
+      <app-input type="number" placeholder="Annual Investment" formControlName="annualInvestment" />
+      <app-input type="number" placeholder="Expected return" formControlName="expectedReturn" />
+      <app-input type="number" placeholder="Duration" formControlName="duration" />
     </div>
 
     <app-button
